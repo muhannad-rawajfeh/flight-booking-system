@@ -14,11 +14,4 @@ public interface SearchFlightsBasicValidator {
             throw new BookingException(message);
         }
     }
-
-    default void validateNotEmpty(String value, String message) {
-        validateNotNull(value, message);
-        if (value.isBlank()) {
-            throw new BookingException(message);
-        }
-    }
 }
