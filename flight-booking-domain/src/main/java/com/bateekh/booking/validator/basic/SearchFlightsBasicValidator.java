@@ -1,13 +1,13 @@
 package com.bateekh.booking.validator.basic;
 
-import com.bateekh.booking.dto.BookingDetails;
+import com.bateekh.booking.dto.SearchFlightsDetails;
 import com.bateekh.booking.exception.BookingException;
 
 import static java.util.Objects.isNull;
 
-public interface BookingBasicValidator {
+public interface SearchFlightsBasicValidator {
 
-    void validate(BookingDetails bookingDetails);
+    void validate(SearchFlightsDetails flightsDetails);
 
     default void validateNotNull(Object value, String message) {
         if (isNull(value)) {

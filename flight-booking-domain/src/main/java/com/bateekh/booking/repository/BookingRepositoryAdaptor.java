@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface BookingRepositoryAdaptor {
 
+    Flight findByCode(String code);
+
     List<Flight> findAvailableFlights(Airport origin,
                                       Airport destination,
                                       LocalDate date,

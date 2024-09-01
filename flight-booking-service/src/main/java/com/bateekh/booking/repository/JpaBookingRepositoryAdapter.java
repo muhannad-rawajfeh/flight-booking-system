@@ -5,6 +5,7 @@ import com.bateekh.booking.dto.Booking;
 import com.bateekh.booking.dto.Flight;
 import com.bateekh.booking.entity.BookingEntity;
 import com.bateekh.booking.entity.FlightEntity;
+import com.bateekh.booking.exception.BookingException;
 import com.bateekh.booking.mapper.BookingMapper;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +26,12 @@ public class JpaBookingRepositoryAdapter implements BookingRepositoryAdaptor {
         this.bookingMapper = bookingMapper;
         this.flightJpaRepository = flightJpaRepository;
         this.bookingJpaRepository = bookingJpaRepository;
+    }
+
+    @Override
+    public Flight findByCode(String code) {
+        return bookingMapper.toDomain(flightJpaRepository.findByCode(code)
+                .orElseThrow(() -> new BookingException(String.format("No flight found with code: %s", code))));
     }
 
     @Override

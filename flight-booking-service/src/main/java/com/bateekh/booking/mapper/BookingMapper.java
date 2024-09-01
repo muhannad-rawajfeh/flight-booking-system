@@ -11,6 +11,8 @@ import java.util.List;
 @Mapper
 public interface BookingMapper {
 
+    Flight toDomain(FlightEntity flightEntity);
+
     BookingEntity toEntity(Booking booking);
 
     List<Flight> toDomain(List<FlightEntity> flightEntities);

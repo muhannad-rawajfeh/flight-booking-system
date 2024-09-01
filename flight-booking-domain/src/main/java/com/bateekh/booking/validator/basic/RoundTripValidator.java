@@ -1,21 +1,21 @@
 package com.bateekh.booking.validator.basic;
 
-import com.bateekh.booking.dto.BookingDetails;
+import com.bateekh.booking.dto.SearchFlightsDetails;
 import com.bateekh.booking.exception.BookingException;
 
-public class RoundTripValidator implements BookingBasicValidator {
+public class RoundTripValidator implements SearchFlightsBasicValidator {
 
     @Override
-    public void validate(BookingDetails bookingDetails) {
-        if (bookingDetails.isRoundTrip()) {
-            validateNotNull(bookingDetails.getReturnDate(), "Return date cannot be null in a round trip");
+    public void validate(SearchFlightsDetails flightsDetails) {
+        if (flightsDetails.isRoundTrip()) {
+            validateNotNull(flightsDetails.getReturnDate(), "Return date cannot be null in a round trip");
 
-            if (bookingDetails.getReturnDate().isBefore(bookingDetails.getDepartureDate())) {
+            if (flightsDetails.getReturnDate().isBefore(flightsDetails.getDepartureDate())) {
                 throw new BookingException("Return date cannot be before departure date");
             }
 
-            if (bookingDetails.getDepartureFlightCode().equals(bookingDetails.getReturnFlightCode())) {
-                throw new BookingException("Departure and return codes cannot be the same");
+            if (flightsDetails.getOrigin().equals(flightsDetails.getDestination())) {
+                throw new BookingException("Origin and destination cannot be the same");
             }
         }
     }

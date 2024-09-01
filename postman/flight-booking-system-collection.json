@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "b8d92860-2053-4e7a-be33-dabbcdedba68",
+		"name": "flight-booking-system-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31661271"
+	},
+	"item": [
+		{
+			"name": "search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"departureDate\": \"2024-09-12\",\r\n    \"returnDate\": \"2024-09-18\",\r\n    \"origin\": \"AMM\",\r\n    \"destination\": \"DXB\",\r\n    \"numOfPassengers\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/booking/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"booking",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"muhannad\",\r\n    \"departureDate\": \"2024-09-12\",\r\n    \"returnDate\": \"2024-09-18\",\r\n    \"departureFlightCode\": \"BA-101\",\r\n    \"returnFlightCode\": \"BA-201\",\r\n    \"numOfPassengers\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/booking/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"booking",
+						"book"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

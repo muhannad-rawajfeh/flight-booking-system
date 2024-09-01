@@ -16,6 +16,6 @@ public class BookingDetails {
     private int numOfPassengers;
 
     public boolean isRoundTrip() {
-        return Objects.nonNull(returnFlightCode);
+        return Objects.nonNull(returnDate);
     }
 }

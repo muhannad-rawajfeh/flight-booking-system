@@ -1,13 +1,14 @@
 package com.bateekh.booking.validator.basic;
 
-import com.bateekh.booking.dto.BookingDetails;
+import com.bateekh.booking.dto.SearchFlightsDetails;
 
-public class NullValidator implements BookingBasicValidator {
+public class NullValidator implements SearchFlightsBasicValidator {
 
     @Override
-    public void validate(BookingDetails bookingDetails) {
-        validateNotNull(bookingDetails, "Booking request cannot be null");
-        validateNotNull(bookingDetails.getDepartureDate(), "Departure date cannot be null");
-        validateNotEmpty(bookingDetails.getDepartureFlightCode(), "Departure flight code cannot be empty");
+    public void validate(SearchFlightsDetails flightsDetails) {
+        validateNotNull(flightsDetails, "Flight details cannot be null");
+        validateNotNull(flightsDetails.getDepartureDate(), "Departure date cannot be null");
+        validateNotNull(flightsDetails.getOrigin(), "Origin cannot be null");
+        validateNotNull(flightsDetails.getDestination(), "Destination cannot be null");
     }
 }
